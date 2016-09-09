@@ -68,7 +68,7 @@ def update(command):
                 command, "1"
             ))
 
-    commands.sort(key=lambda x: x[1], reverse=True)
+    commands.sort(key=lambda x: int(x[1]), reverse=True)
     with open(FILE_COUNT, "w") as f:
         for cmd in commands:
             f.write(str(cmd[0]) + ' ' + str(cmd[1]) + '\n')
