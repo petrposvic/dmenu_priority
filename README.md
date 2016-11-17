@@ -1,6 +1,6 @@
 # dmenu priority filter
 
-Priority filter for dmenu. Shows often used commands on top.
+Priority filter for dmenu. Shows often used commands on top. Needs /usr/bin/python2.7
 
 Modify /usr/local/bin/dmenu_run (or /usr/bin/dmenu_run) file to apply this filter.
 
@@ -16,7 +16,7 @@ and updates file for this filter.
 main.py update
 ```
 
-## Example
+## Example #1
 ```
 #!/bin/sh
 cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
@@ -36,4 +36,11 @@ fi
                 dmenu "$@" < "$cache"
         fi
 ) | /home/petr/Programy/dmenu_priority/main.py update | ${SHELL:-"/bin/sh"} &
+```
+
+## Example #2
+```
+#!/bin/sh
+/home/petr/Programy/dmenu_priority/main.py merge
+dmenu_path | dmenu "$@" | /home/petr/Programy/dmenu_priority/main.py update | ${SHELL:-"/bin/sh"} &
 ```
