@@ -44,3 +44,13 @@ fi
 /home/petr/Programy/dmenu_priority/main.py merge
 dmenu_path | dmenu "$@" | /home/petr/Programy/dmenu_priority/main.py update | ${SHELL:-"/bin/sh"} &
 ```
+
+## Troubleshooting
+
+If new installed app is not in dmenu, delete .cache/dmenu_run.
+
+```
+rm ~/.cache/dmenu_run
+```
+
+It will be re-created after first launch and merged with your priority list after second launch.
